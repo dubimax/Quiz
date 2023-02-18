@@ -27,3 +27,7 @@ body{
 .bg-success , .bg-danger {
     color: white;
 }
+button:disabled{
+    background-color: gray;
+    color: black;
+}
