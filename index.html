@@ -13,16 +13,39 @@
     <title>Quiznight</title>
 </head>
 
-<body onload="init()">
+<body>
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">QuizNight</a>
         </div>
     </nav>
     <div class="container">
-        <div class="card quiz-card">
-            <img src="img/question-marks.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
+
+        <div class="card mb-3 quiz-card">
+            <div class="card-header">
+                <a href=""><img src="img/logo.png" class="card-img-top" alt=""></a>
+                <div class="d-flex flex-column jc-spaceAround alignItems-l margin-15px">
+                    <a href="">HTML</a>
+                    <a href="">CSS</a>
+                    <a href="">JS</a>
+                    <a href="">Java</a>
+                </div>
+            </div>
+            <div class="card-body text-align-c d-flex flex-column alignItems-r" id="startBody">
+                <div class="card-body d-flex flex-column jc-center ">
+                    <h5>Welcome to<br>The Awesome HTML Quiz</h5>
+                    <span>Ready for the Challenge?</span>
+                </div>
+                <button class="btn btn-danger start-btn" onclick="getQuestion(html)">START NOW <b>></b></button>
+            </div>
+            <div class="card-body" id="endscreen" style="display: none;">
+                <h3>Quiz beendet!</h3>
+                <img src="img/tropy.png" alt="">
+                <span>
+                    Du hast <b id="correctAnswer"></b> von <b id="questionAmount"></b> Fragen richtig beantwortet!
+                </span>
+            </div>
+            <div class="card-body" id="questionBody" style="display: none;">
                 <h5 class="card-title" id="card-title">Frage</h5>
                 <div id="answers">
 
@@ -32,7 +55,8 @@
                     <span>
                         <b id="question-count">1</b> von <b id="question-amount">5</b> Fragen
                     </span>
-                    <button id="next-btn" class="btn btn-outline-primary" onclick="nextQuestion()">Nächste Frage</button>
+                    <button id="next-btn" class="btn btn-outline-primary" onclick="nextQuestion()">Nächste
+                        Frage</button>
 
 
                 </div>

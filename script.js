@@ -1,4 +1,4 @@
-let questions = [{
+let html = [{
     'question': 'Wer hat HTML erfunden?',
     'answer1': 'Robbie Williams',
     'answer2': 'Lady Gaga',
@@ -44,13 +44,8 @@ let questions = [{
 
 let currentQuestion = 0;
 let button = 0;
+let correctAnswers = 0;
 
-function init() {
-    getQuestionsAmount();
-    getQuestion();
-    setButton();
-
-}
 
 function setButton() {
     if (button == 0) {
@@ -58,69 +53,82 @@ function setButton() {
     }
     else {
         document.getElementById("next-btn").disabled = false;
-
     }
 }
 
 
-function checkAnswer(selectedAnswer) {
-    let question = questions[currentQuestion];
+function checkAnswer(selectedAnswer, array) {
     let selectedAnswerNumber = selectedAnswer.slice(-1);
-    let idOfRightAnswer = 'answer' + question['correctAnswer'];
-    if (selectedAnswerNumber == question['correctAnswer']) {
-        console.log('Richtig');
+    let idOfRightAnswer = array[currentQuestion]['correctAnswer'];
+    if (selectedAnswerNumber == idOfRightAnswer) {
+        correctAnswers++;
         document.getElementById(selectedAnswer).classList.add('bg-success');
     } else {
-        console.log('Falsch');
         document.getElementById(selectedAnswer).classList.add('bg-danger');
-        document.getElementById(idOfRightAnswer).classList.add('bg-success');
-
+        document.getElementById('answer' + idOfRightAnswer).classList.add('bg-success');
     }
     button = 1;
-
     setButton();
-
 }
 
-function getAnswers() {
+function getAnswers(array) {
     let answers = document.getElementById('answers');
     answers.innerHTML = '';
 
-    for (let i = 1; i < questions.length; i++) {
-        let answer = questions[currentQuestion];
-        let text = answer['answer' + i];
+    for (let i = 1; i < array.length; i++) {
         answers.innerHTML += `
-        <div id="answer${i}" class="card answer-card mb-2" onclick="checkAnswer('answer${i}')">
+        <div id="answer${i}" class="card answer-card mb-2" onclick="checkAnswer('answer${i}', html)">
                     <div class="card-body" >
-                       <span>${text}</span>
+                       <span>${array[currentQuestion]['answer' + i]}</span>
                     </div>
                 </div>
         `;
     }
 }
 
-function getQuestion() {
-    let question = document.getElementById('card-title');
-    let questionString = questions[currentQuestion]['question'];
-    question.innerHTML = questionString;
-    
-    getAnswers(currentQuestion);
+function getQuestion(array) {
+    getQuestionsAmount(array);
+
+    setQuestionVisible();
+    if (currentQuestion >= array.length) {
+        let correctAnswer = document.getElementById('correctAnswer');
+        let questionAmount = document.getElementById('questionAmount');
+
+        document.getElementById('endscreen').style = '';
+        document.getElementById('questionBody').style = 'display:none';
+        currentQuestion = 0;
+        correctAnswer.innerHTML = correctAnswers;
+        questionAmount.innerHTML = array.length;
+
+    } else {
+        let question = document.getElementById('card-title');
+        let questionString = array[currentQuestion]['question'];
+        question.innerHTML = questionString;
+
+        getAnswers(array);
+    }
+
+    setButton();
+
 }
 
-function getQuestionsAmount() {
-    let amount = document.getElementById('question-amount');
-    amount = `
-        ${questions.length + 1}
-    `;
+function setQuestionVisible() {
+    document.getElementById('questionBody').style = '';
+    document.getElementById('startBody').style = 'display:none !important';
 
+}
+
+function getQuestionsAmount(array) {
+    let amount = document.getElementById('question-amount');
+    amount.innerHTML = array.length;
 }
 
 function nextQuestion() {
     button = 0;
     currentQuestion++;
-    getQuestion();
+    getQuestion(html);
     setButton();
 
     let questionCount = document.getElementById('question-count');
-    questionCount.innerHTML = currentQuestion+1;
+    questionCount.innerHTML = currentQuestion + 1;
 }

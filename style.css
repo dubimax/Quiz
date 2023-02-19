@@ -2,6 +2,15 @@ body{
     background-color: rgb(254,250,239);
 }
 
+a {
+    margin: 5px;
+    text-decoration: none;
+    color: rgba(238, 233, 233, 0.5);
+}
+
+a:hover {
+    color: white;
+}
 .container {
     background-color: rgb(254,250,239);
     min-height: 100vh;
@@ -30,4 +39,58 @@ body{
 button:disabled{
     background-color: gray;
     color: black;
+}
+
+.card {
+    display: flex;
+    flex-direction: unset;
+}
+.card-header {
+    background-color:rgb(39,53,92);
+}
+
+.d-flex{
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+
+}
+
+.jc-spaceAround{
+    justify-content: space-around;
+}
+
+.jc-center{
+    justify-content: center;
+}
+.jc-start{
+    justify-content: start;
+}
+.jc-end{
+    justify-content: end;
+}
+.alignItems-l{
+    align-items: left;
+}
+.alignItems-r{
+    align-items: end;
+}
+
+
+.margin-15px{
+    margin: 15px;
+}
+
+.text-align-c{
+    text-align: center;
+}
+.text-align-l{
+    text-align: left;
+}
+
+.start-btn{
+    min-width: 150px;
+    
 }
