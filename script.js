@@ -13,7 +13,6 @@ let html = [{
     'answer3': '<head>',
     'answer4': '<h6>',
     'correctAnswer': 2
-
 },
 {
     'question': 'Wie öffnet man einen Link in einem neuen Tab?',
@@ -39,13 +38,11 @@ let html = [{
     'answer4': 'Justin Bieber',
     'correctAnswer': 3
 }
-
 ];
 
 let currentQuestion = 0;
 let button = 0;
 let correctAnswers = 0;
-
 
 function setButton() {
     if (button == 0) {
@@ -55,7 +52,6 @@ function setButton() {
         document.getElementById("next-btn").disabled = false;
     }
 }
-
 
 function checkAnswer(selectedAnswer, array) {
     let selectedAnswerNumber = selectedAnswer.slice(-1);
@@ -77,9 +73,9 @@ function getAnswers(array) {
 
     for (let i = 1; i < array.length; i++) {
         answers.innerHTML += `
-        <div id="answer${i}" class="card answer-card mb-2" onclick="checkAnswer('answer${i}', html)">
+        <div id="answer${i}" class="answer-card mb-2" onclick="checkAnswer('answer${i}', html)">
                     <div class="card-body" >
-                       <span>${array[currentQuestion]['answer' + i]}</span>
+                       <span><pre><code>${replaceOpeningTag(array[currentQuestion]['answer' + i])}</code></pre></span>
                     </div>
                 </div>
         `;
@@ -88,34 +84,27 @@ function getAnswers(array) {
 
 function getQuestion(array) {
     getQuestionsAmount(array);
-
     setQuestionVisible();
     if (currentQuestion >= array.length) {
         let correctAnswer = document.getElementById('correctAnswer');
         let questionAmount = document.getElementById('questionAmount');
-
         document.getElementById('endscreen').style = '';
         document.getElementById('questionBody').style = 'display:none';
         currentQuestion = 0;
         correctAnswer.innerHTML = correctAnswers;
         questionAmount.innerHTML = array.length;
-
     } else {
         let question = document.getElementById('card-title');
         let questionString = array[currentQuestion]['question'];
         question.innerHTML = questionString;
-
         getAnswers(array);
     }
-
     setButton();
-
 }
 
 function setQuestionVisible() {
     document.getElementById('questionBody').style = '';
     document.getElementById('startBody').style = 'display:none !important';
-
 }
 
 function getQuestionsAmount(array) {
@@ -128,7 +117,11 @@ function nextQuestion() {
     currentQuestion++;
     getQuestion(html);
     setButton();
-
     let questionCount = document.getElementById('question-count');
     questionCount.innerHTML = currentQuestion + 1;
+}
+
+function replaceOpeningTag(text) {
+
+    return text.replace('<', '&lt;');
 }
