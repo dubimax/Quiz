@@ -15,20 +15,15 @@
 </head>
 
 <body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">QuizNight</a>
-        </div>
-    </nav>
     <div class="container">
-        <div class="card quiz-card">
+        <div class="card quiz-card main-card">
             <div class="card-header">
                 <a href=""><img src="img/logo.png" class="card-img-top" alt=""></a>
-                <div class="d-flex flex-column jc-spaceAround alignItems-l margin-15px">
+                <div class="d-flex flex-column jc-spaceAround alignItems-l margin-15px menu-media-400px">
                     <a onclick="restart('html')">HTML</a>
                     <a onclick="restart('css')">CSS</a>
-                    <a href="">JS</a>
-                    <a href="">Java</a>
+                    <a onclick="restart('js')">JS</a>
+                    <a onclick="restart('java')">Java</a>
                 </div>
             </div>
             <div class="card-body text-align-c d-flex flex-column alignItems-c" id="startBody">
@@ -39,7 +34,7 @@
             </div>
             <div class="card-body text-align-c d-flex flex-column alignItems-c" id="question-startBody"
                 style="display: none !important;">
-                <div class="card-body d-flex flex-column jc-center " id="welcome">
+                <div class="card-body d-flex flex-column jc-evenly " id="welcome">
                     <h5>Welcome to<br>The Awesome QuizApp</h5>
                     <span>Start Your Challenge!</span>
                 </div>
