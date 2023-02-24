@@ -1,114 +1,195 @@
-body{
-    background-color: rgb(254,250,239);
+body {
+    background-color: rgb(254, 250, 239);
 }
 
 a {
     margin: 5px;
     text-decoration: none;
-    color: rgba(238, 233, 233, 0.5);
-}
-b{
-    font-size: 18px;
+    color: rgba(238, 233, 233, 0.5) !important;
 }
 
 a:hover {
-    color: white;
+    cursor: pointer;
+    color: white !important;
 }
+
+b {
+    font-size: 18px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.answer-card {
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    border-radius: unset;
+}
+
 .container {
-    background-color: rgb(254,250,239);
+    background-color: rgb(254, 250, 239);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.quiz-card{
-    width: 30rem;
+
+.card-title {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
 }
-.question-footer{
+
+.quiz-card {
+    min-height: 610px;
+}
+
+.question-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 15px;
 }
-.answer-card{
-    max-height: 150px !important; 
-}
-.answer-card:hover{
+
+.answer-card:hover {
     cursor: pointer;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 40, 155, 0.2);
 }
 
-.bg-success , .bg-danger {
+.bg-danger {
     color: white;
+    background-color: rgba(142, 0, 11, 0.3) !important;
+
 }
-button:disabled{
+
+.bg-success {
+    color: white;
+    background-color: rgba(0, 142, 11, 0.3) !important;
+}
+
+.color-green {
+    background-color: rgba(0, 142, 11, 1) !important;
+}
+
+button:disabled {
     background-color: gray;
     color: black;
+}
+
+.share-btn {
+    background-color: rgb(39, 53, 92) !important;
+    color: white;
+}
+
+.card-bg {
+    background-color: rgb(247, 247, 247);
+}
+
+.answer-card-body {
+    min-height: 80px !important;
+    max-height: 150px !important;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px !important;
+}
+
+.share-btn:hover {
+    background-color: rgba(39, 53, 92, 0.8) !important;
+    color: white;
+}
+
+.retry-link {
+    color: rgb(39, 53, 92) !important;
 }
 
 .card {
     display: flex;
     flex-direction: unset;
-    min-height: 60vh;
     min-width: 80%;
-}
-.card-header {
-    background-color:rgb(39,53,92);
+    border: none !important;
+    border-radius: unset !important;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2), 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.d-flex{
+.card-header {
+    background-color: rgb(39, 53, 92);
+}
+
+.d-flex {
     display: flex;
 }
 
 .flex-column {
     flex-direction: column;
-
 }
 
-.jc-spaceAround{
+.letterBox {
+    background-color: lightgray;
+    padding: 10px;
+    margin: 0 15px;
+    width: 47px;
+    text-align: center;
+}
+
+.jc-spaceAround {
     justify-content: space-around;
 }
 
-.jc-center{
+.jc-center {
     justify-content: center;
 }
-.jc-start{
+
+.jc-start {
     justify-content: start;
 }
-.jc-end{
+
+.jc-end {
     justify-content: end;
 }
-.alignItems-l{
+
+.alignItems-l {
     align-items: left;
 }
-.alignItems-r{
+
+.alignItems-r {
     align-items: end;
 }
-.alignItems-c{
+
+.alignItems-c {
     align-items: center;
 }
 
-.margin-15px{
+.margin-15px {
     margin: 15px;
 }
 
-.text-align-c{
+.text-align-c {
     text-align: center;
 }
-.text-align-r{
+
+.text-align-r {
     text-align: right;
 }
-.text-align-l{
+
+.text-align-l {
     text-align: left;
 }
 
-.start-btn{
+.start-btn {
     min-width: 150px;
-    
 }
+
 .color-gold {
-    color:rgb(245,167,105);
+    color: rgb(245, 167, 105);
     font-weight: 700;
     margin: 0;
+    margin-right: 15px;
 }
