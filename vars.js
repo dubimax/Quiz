@@ -368,3 +368,10 @@ let questionsCategory = [];
 let correctAudio = new Audio('audio/correct.mp3');
 let wrongAudio = new Audio('audio/wrong.mp3');
 let finishedAudio = new Audio('audio/finished.mp3');
+
+setVolume();
+function setVolume(){
+    correctAudio.volume = 0.2;
+    wrongAudio.volume = 0.05;
+    finishedAudio.volume = 0.15;
+}

@@ -121,10 +121,13 @@ function playGameOverSound() {
 
 function setStartGameScreen(category) {
     resetQuestionStartBody();
+    document.getElementById('impressum').style = 'display:none !important;';
+
     document.getElementById('startBody').style = 'display:none !important;';
     document.getElementById('questionBody').style = 'display:none !important;';
     document.getElementById('question-startBody').style = '';
     setQuestionStartBody(category);
+
 }
 
 function setQuestionVisible() {
@@ -138,6 +141,7 @@ function setQuestionStartBody(category) {
     questionStartBody.innerHTML += `
      <button class="btn btn-danger start-btn text-align-c" onclick="getQuestion('${category}')">START NOW <b>></b></button>
     `;
+
 }
 
 function resetQuestionStartBody() {
@@ -159,6 +163,8 @@ function restart(category) {
     currentQuestion = 0;
     document.getElementById('endscreen').style = 'display:none !important;';
     setStartGameScreen(category);
+    addCategoryToStartChallenge(category);
+
     setRetryFunction(category);
 }
 
@@ -214,4 +220,17 @@ function setQuestionCount() {
 
 function replaceOpeningTag(text) {
     return text.replace('<', '&lt;');
+}
+
+function addCategoryToStartChallenge(category){
+    category = category.toUpperCase();
+   document.getElementById('challenge').innerHTML = category;
+}
+
+function showImpressum() {
+    document.getElementById('impressum').style = '';
+    document.getElementById('startBody').style = 'display:none !important;'
+    document.getElementById('questionBody').style = 'display:none !important;';
+    document.getElementById('question-startBody').style = 'display:none !important;';
+
 }

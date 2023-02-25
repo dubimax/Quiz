@@ -8,6 +8,14 @@ a {
     color: rgba(238, 233, 233, 0.5) !important;
 }
 
+.impressum a {
+    color: rgb(0, 0, 0) !important;
+}
+
+.impressum {
+    font-size: 12px;
+}
+
 a:hover {
     cursor: pointer;
     color: white !important;
@@ -65,7 +73,6 @@ b {
 .bg-danger {
     color: white;
     background-color: rgba(142, 0, 11, 0.3) !important;
-
 }
 
 .bg-success {
@@ -101,6 +108,9 @@ button:disabled {
 .card-header {
     border-top-left-radius: 20px !important;
     border-bottom-left-radius: 20px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-header:first-child {
@@ -114,13 +124,11 @@ button:disabled {
 
 .main-card {
     width: 80% !important;
-
 }
 
 .quiz-card:last-child {
     border-bottom-right-radius: 20px !important;
     border-bottom-left-radius: 20px !important;
-
 }
 
 .answer-card-body {
@@ -140,6 +148,10 @@ button:disabled {
 .retry-link {
     color: rgb(39, 53, 92) !important;
 }
+.retry-link:hover {
+    color: rgba(39, 53, 92,0.7) !important;
+}
+
 
 .card {
     display: flex;
@@ -226,28 +238,25 @@ button:disabled {
 }
 
 @media (max-width:770px) {
-
     .answer-card-body {
         font-size: smaller;
     }
-
 }
 
 @media (max-width:540px) {
-
     .answer-card-body {
         text-align: center;
         flex-direction: column;
     }
-    .letterBox{
+
+    .letterBox {
         font-size: 15px;
         padding: 5px;
     }
-    .btn{
+
+    .btn {
         font-size: 15px;
     }
-
-
 }
 
 @media (max-width:450px) {
@@ -264,7 +273,6 @@ button:disabled {
     .card-bg {
         width: unset;
         border-bottom-left-radius: 20px !important;
-
     }
 
     .card img {
